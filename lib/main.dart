@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
-import "package:hello_world/home_page.dart";
+import "package:hello_world/pages/home_page.dart";
+import "package:hello_world/pages/login_page.dart";
 
 void main() {
   runApp(MyApp());
@@ -10,15 +11,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-    // bool isMale = true;
-    // num perecentage = 90.7;
-
-    // var day = 'thursday';
-    // const pi = 3.14;
-
     return MaterialApp(
-      home: HomePage(),
+      //home: HomePage(),
+      themeMode: ThemeMode.light,
+      theme: ThemeData(primarySwatch: Colors.purple),
+      darkTheme: ThemeData(brightness: Brightness.dark),
+      initialRoute: "/home",
+      routes: {
+        "/": (context) => LoginPage(),
+        "/home": (context) => HomePage(),
+        "/login": (context) => LoginPage()
+      },
     );
   }
 }
